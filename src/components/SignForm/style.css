@@ -1,0 +1,166 @@
+.signForm {
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    margin: 100px 25px;
+    width: 95%;
+    height: 560px;
+}
+.signForm .signForm-header {
+    background-color: rgb(250, 250, 250);
+    height: 10px;
+}
+
+.signForm-header-close:hover{
+    background-color: #008B8B;
+    color: white;
+}
+
+.signForm .signForm-body {
+    border-bottom: 2px solid rgb(230, 230, 230);
+    padding: 24px 38px;
+    background-color: rgb(250, 250, 250);
+    height: 100%;
+}
+
+.signIn-register{
+    padding: 50px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+.signIn-register input {
+    padding: 10px;
+    width: 250px;
+}
+
+.signIn-register .submit{
+    width: 250px;
+    height: 45px;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    background-color: black;
+    cursor: pointer;
+}
+
+.signIn-register .submit:hover{
+    background-color: rgb(31, 31, 31);
+}
+
+.signIn-register button:disabled,
+button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.signIn-register button[disabled]:hover{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.signIn-register .signIn-register-center{
+    background-color: rgb(200, 200, 200);
+    position: absolute;
+    left: 50%;
+    margin-right: -0.5rem;
+    width: 1px;
+    height: 400px;
+}
+
+.signIn-register .signIn-register-left{
+    display: flex;
+    justify-content: center;
+    padding: 0 2.5rem;
+    margin-top: 10px;
+    
+}
+.signIn-register .signIn-register-left #title-signIn{
+    font-size: 18px;
+    text-align: center;
+}
+
+.signIn-register .signIn-register-left #forgot-password{
+    text-align: center;
+    color: rgb(50, 50, 50)
+}
+.signIn-register .signIn-register-right{
+    display: flex;
+    justify-content: center;
+    padding: 0 2.5rem;
+    margin-top: 10px;
+}
+
+.signIn-register .signIn-register-right #title-signUp{
+    font-size: 18px;
+    text-align: center;
+}
+
+.custom-margin-signIn-register{
+    margin-top: 20px;
+    display: block;
+}
+
+#divider-authentication{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+    color: rgb(100, 100, 100);
+}
+#divider-authentication div{
+    flex: 0 0 33%;
+}
+
+#caution-username{
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+#caution-password{
+    color: rgb(100, 100, 100);
+    margin-top:10px;
+}
+
+#caution-password span{
+    margin-left: 5px;
+    display: block;
+}
+
+#caution-email-validation{
+    color: rgb(100, 100, 100);
+    font-size: 11px;
+    margin-top: 3px;
+    
+}
+
+#caution-email-validation span{
+    display: block;
+}
+
+#caution-confirm-password{
+    color: rgb(100, 100, 100);
+    font-size: 11px;
+    margin-top: 3px;
+
+}
+
+#caution-confirm-password span{
+    display: block;
+}
+
+#warning-sign-in{
+    position: relative;
+    width: 250px;
+    top: 0;
+    height: 55px;
+    overflow-x: hidden;
+    color: red;
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 0.7rem;
+    transition: all 0.2s ease-in-out;
+}

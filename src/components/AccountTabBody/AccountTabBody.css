@@ -1,0 +1,101 @@
+
+#profile-tab-body-overview{
+    font-size: 58px;
+    color: rgb(30, 30, 30);
+    text-align: center;
+
+    font-size: 50px;
+    padding: 50px 10px;
+}
+
+#profile-tab-body-overview > div {
+    margin-bottom: 50px;
+}
+
+.overview-boldText{
+    font-weight: 900;
+}
+
+.overview-text{
+    font-size: 38px;
+    padding-left: 10px;
+}
+
+#profile-tab-body > .profile-tab-body-flex {
+    display: flex;
+    justify-items: center;
+
+    margin-top: 25px;
+}
+.profile-tab-body-flex > #profile-tab-body-profile-left{
+    flex: 0 0 45%;
+    margin-right: 10%;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-left > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-left > div > label {
+    flex: 0 0 115px;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-left > div > input {
+    flex: 1 0 auto;
+    padding: 3px 10px;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-left > div > button {
+    flex: 1 0 auto;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #008B8B;
+    color: #008B8B;
+    background: none;
+    transition: all ease-in-out 0.2s 
+}
+.profile-tab-body-flex #profile-tab-body-profile-left > div > button:hover {
+    background-color: #008B8B;
+    color: white;
+}
+
+.profile-tab-body-flex > #profile-tab-body-profile-right {
+    flex: 0 0 45%;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-right > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-right > div > label {
+    flex: 0 0 115px;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-right > div > input {
+    flex: 1 0 auto;
+    padding: 3px 10px;
+}
+
+.profile-tab-body-flex #profile-tab-body-profile-right > div > button {
+    flex: 1 0 auto;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #008B8B;
+    color: #008B8B;
+    background: none;
+    transition: all ease-in-out 0.2s 
+}
+.profile-tab-body-flex #profile-tab-body-profile-right > div > button:hover {
+    background-color: #008B8B;
+    color: white;
+}
+
+.expire-select select{
+    padding: 5px;
+}

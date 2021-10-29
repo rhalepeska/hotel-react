@@ -1,0 +1,80 @@
+#profile-tab-body-myTrips-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+}
+
+#profile-tab-body-myTrips-header .profile-tab-body-myTrips-menu {
+    margin-right: 50px;
+    padding-bottom: 10px;
+}
+#profile-tab-body-myTrips-header .profile-tab-body-myTrips-menu > div {
+    text-align: center;
+    height: 35px;
+    width: 80px;
+    transition: all 0.1s ease-in-out;
+}
+
+#profile-tab-body-myTrips-header .profile-tab-body-myTrips-menu > div:hover{
+    cursor: pointer;
+    font-weight: bolder;
+    border-bottom: 2px solid #008B8B;
+}
+
+#profile-tab-body-myTrips-header .profile-tab-body-myTrips-clicked{
+    font-weight: bolder;
+    border-bottom: 2px solid #008B8B;
+}
+
+.profile-tab-myTrips-hotel-info .profile-tab-body-flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profile-tab-myTrips-hotel-info .hotel-card{
+    padding: 15px;
+    margin: 50px 0px;
+    background-color: rgba(0, 139, 139, 0.051);
+}
+
+.profile-tab-body-flex #profile-tab-body-myTrips-left {
+    flex: 1 0 auto;
+}
+
+.profile-tab-body-flex #profile-tab-body-myTrips-left > .profile-tab-body-myTrips-left-sec {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.profile-tab-body-flex #profile-tab-body-myTrips-left > .profile-tab-body-myTrips-left-sec > .profile-tab-body-myTrips-left-sec-label{
+    margin-right: 10px;
+}
+
+.profile-tab-body-flex #profile-tab-body-myTrips-left > .profile-tab-body-myTrips-left-sec > .profile-tab-body-myTrips-left-sec-value{
+    font-weight: bolder;
+}
+
+.profile-tab-body-flex #profile-tab-body-myTrips-right {
+    flex: 2 0 auto;
+    text-align: center;
+}
+
+#profile-tab-body-myTrips-right .profile-tab-body-myTrips-right-carousel{
+    width: 320px;
+    margin: auto;
+
+    position: relative;
+}
+
+#profile-tab-body-myTrips-right .profile-tab-body-myTrips-right-carousel-hotelName {
+    position: absolute;
+    top: 0;
+    background-color: rgba(180, 180, 180, 0.5);
+    color: white;
+    width: 100%;
+    padding: 7px;
+    z-index: 1;
+}
