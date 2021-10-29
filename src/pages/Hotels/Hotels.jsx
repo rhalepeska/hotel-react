@@ -10,7 +10,7 @@ const Hotels = () => {
 
     useEffect(() => {
         (async () => {
-            const {data} = await axios.get('http://localhost:8080/api/hotel');
+            const {data} = await axios.get('https://hotel-express.azurewebsites.net/api/hotel');
             console.log(data);
             setHotels(data);
             setFiltered(data);

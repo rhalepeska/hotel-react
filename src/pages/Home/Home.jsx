@@ -8,9 +8,9 @@ const Home = () => {
     const [featured, setFeatured] = useState([]);
     useEffect(() => {
         (async () => {
-          //  const {data} = await axios.get('http://localhost:8080/api/hotel/featured');
-           // console.log(data);
-           // setFeatured(data);
+            const {data} = await axios.get('https://hotel-express.azurewebsites.net/api/hotel/featured');
+            console.log(data);
+            setFeatured(data);
         })();
       }, []);
 
