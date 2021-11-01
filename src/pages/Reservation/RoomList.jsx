@@ -10,6 +10,17 @@ const RoomList = ({rooms, nights, numRooms, hotelInfo, reservationDate, hotelid}
     const [ allReviewState, setAllReviewState ] = useState({})
     const [ isReviewReservation, setIsReviewReservation ] = useState(false);
 
+    useEffect(() => {
+        (async () => {
+            if(!Auth.loggedIn()){
+                // window.location.assign('/'); 
+            }else{
+                const userData = await Auth.getProfile();
+                console.log(userData.data);
+                setUser(userData.data);
+            }
+        })();
+    }, [])
 
     const reserve = async(event) => {
         event.preventDefault();
