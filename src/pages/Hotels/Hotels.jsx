@@ -10,7 +10,7 @@ const Hotels = () => {
 
     useEffect(() => {
         (async () => {
-            const url = process.env.BASE_URL || "https://hotel-express.azurewebsites.net/api";
+            const url = process.env.REACT_APP_BASE_URL;
             const {data} = await axios.get(`${url}/hotel`);
             console.log(data);
             setHotels(data);
