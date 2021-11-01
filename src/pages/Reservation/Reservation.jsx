@@ -11,7 +11,8 @@ const Reservation = ({match}) => {
 
     useEffect(() => {
         (async () => {
-            const {data} = await axios.get(`http://localhost:8080/api/hotel/id/${id}`);
+            const url = process.env.BASE_URL;
+            const {data} = await axios.get(`${url}/hotel/id/${id}`);
             setHotel([data]);
         })();
       }, []);
@@ -21,7 +22,7 @@ const Reservation = ({match}) => {
         :
         <div>
             <HotelList hotels={hotel} showAll={true}/>
-            <ReserveForm rooms={hotel[0].roomType} hotelid={hotel[0]._id}/>
+            <ReserveForm hotelInfo={hotel[0]} rooms={hotel[0].roomType} hotelid={hotel[0]._id}/>
         </div>
     )
 }

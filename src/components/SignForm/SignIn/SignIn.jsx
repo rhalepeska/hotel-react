@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 import { loginUser } from "../../../utils/user-API";
 import Auth from '../../../utils/auth';
 
+import { useDispatch } from 'react-redux'
+import { setFirstName, setUsername, setPoints, setTotalNights } from '../../../redux/slices/user/userSlice';
+
 const SignIn = ( {closeModal} ) => { 
     const [userFormData, setUserFormData] = useState({ username: '', password: '' }); 
     const [showAlert, setShowAlert] = useState(false);
 
     const [ usernameNotice, setUsernameNotice] = useState('none');
     const [ passwordNotice, setPasswordNotice] = useState('none');
+    
+    // To store user data on Redux
+    const dispatch = useDispatch();
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -42,6 +48,13 @@ const SignIn = ( {closeModal} ) => {
             const { token, user } = response.data;
             console.log(token)
             console.log(user);
+
+            // To store user data in Redux state
+            dispatch(setFirstName(user.firstName));
+            dispatch(setUsername(user.username));
+            dispatch(setPoints(user.points));
+            dispatch(setTotalNights(user.totalNights));
+
             Auth.login(token);
             
             closeModal();

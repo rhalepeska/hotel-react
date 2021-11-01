@@ -34,6 +34,19 @@ const SignUp = ( {closeModal} ) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
         setPasswordNotice({...validatePassword(userFormData.password)})
+
+        if(!validateEmail(userFormData.email)){
+            setEmailNotice('block');
+        }else{
+            setEmailNotice('none');
+        }
+
+        if(userFormData.password !== "" && userFormData.password === userFormData.confirmpassword){
+            setConfirmPWNotice('none');
+        }else{
+            setConfirmPWNotice('block');
+        }
+
     };
 
     // Validate SignUp information - Username, email type, password
@@ -91,18 +104,18 @@ const SignUp = ( {closeModal} ) => {
             <h3 id="title-signUp">New to Spinka</h3>
             <form onSubmit={signUpSubmit}> 
                 <label className="custom-margin-signIn-register">User name:</label>
-                <input name="username" type="text" onChange={handleInputChange} onBlur={focusOutUserName} />
+                <input name="username" type="text" onChange={handleInputChange} onKeyUp={focusOutUserName} onBlur={focusOutUserName} />
                 <div id="caution-username" style={{ "display": usernameNotice }}>
                     <span style={{ "color": "red" }}>User name required</span>
                 </div>
                 <label className="custom-margin-signIn-register">Email Address:</label>
-                <input name="email" type="text" id="signUp-email" onChange={handleInputChange} onBlur={focusOutEmail} />
+                <input name="email" type="text" id="signUp-email" onChange={handleInputChange} onKeyUp={focusOutEmail} onBlur={focusOutEmail} />
                 <div id="caution-email-validation" style={{ "display": emailNotice }}>
                     <span style={{ "color": "red", "marginBottom": "3px" }}>The email you entered is invalid.</span>
                     <span style={{ "color": "red" }}>Please check your email and try again.</span>
                 </div>
                 <label className="custom-margin-signIn-register">Password:</label>
-                <input name="password" type="password" id="signUp-password" onChange={handleInputChange} onBlur={focusOutPassword}/>
+                <input name="password" type="password" id="signUp-password" onChange={handleInputChange} onKeyUp={focusOutPassword} onBlur={focusOutPassword}/>
                 <div id="caution-password" style={{'display': passwordNotice.display}}>
                     <span style={{'color': passwordNotice.char8}}>* 8 characters minimum</span>
                     <span style={{'color': passwordNotice.specialChar}}>* At least one special character</span>
@@ -110,7 +123,7 @@ const SignUp = ( {closeModal} ) => {
                     <span style={{'color': passwordNotice.letter}}>* At least one lowercase letter</span>
                 </div>
                 <label className="custom-margin-signIn-register">Confirm Password:</label>
-                <input name="confirmpassword" type="password" id="confirm-password" onChange={handleInputChange} onBlur={focusOutConfirmPW} />
+                <input name="confirmpassword" type="password" id="confirm-password" onChange={handleInputChange} onKeyUp={focusOutConfirmPW} onBlur={focusOutConfirmPW} />
                 <div id="caution-confirm-password" style={{"display": confirmPWNotice}}>
                     <span style={{ "color": "red" }}>Your passwords do not match, please try again.</span>
                 </div>

@@ -10,7 +10,8 @@ const Hotels = () => {
 
     useEffect(() => {
         (async () => {
-            const {data} = await axios.get('https://hotel-express.azurewebsites.net/api/hotel');
+            const url = process.env.BASE_URL;
+            const {data} = await axios.get(`${url}/hotel`);
             console.log(data);
             setHotels(data);
             setFiltered(data);

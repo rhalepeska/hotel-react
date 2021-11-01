@@ -99,3 +99,18 @@
 .expire-select select{
     padding: 5px;
 }
+
+.reviewReseravation-submit-btn{
+    flex: 1 0 auto;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #008B8B;
+    color: #008B8B;
+    background: none;
+    transition: all ease-in-out 0.2s 
+}
+
+.reviewReseravation-submit-btn:hover{
+    background-color: #008B8B;
+    color: white;
+}

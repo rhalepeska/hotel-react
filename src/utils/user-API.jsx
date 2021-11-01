@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const baseURL = process.env.REACT_APP_BASE_URL || `http://localhost:8080/api/`
+const baseURL = process.env.BASE_URL || `http://localhost:8080/api/`
 
 const api = axios.create({
     baseURL
@@ -40,6 +40,12 @@ export const updateUser = async (userData) => {
 export const updateCardInfo = async (cardInfo, username) => {
     console.log(cardInfo, username);
     return await api.put(`/user/cardinfo/${username}`, cardInfo);
+}
+
+// Update Billing Address
+export const updateBillingAddress = async (billingAddress, userId) => {
+    console.log(billingAddress, userId);
+    return await api.put(`/user/billingAddress/${userId}`, billingAddress);
 }
 
 // export const loginUser = async (userData) => {

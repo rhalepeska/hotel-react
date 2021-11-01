@@ -16,6 +16,10 @@ const MyTrips = () => {
 
     const [ reservations, setReservations ] = useState({});
 
+    // Pass HotelCard component to handle update, 
+    // When canceling a reservation on HotelCard, update isUpdate to rerender this component 
+    const [ isUpdate, setIsUpdate ] = useState(false);  
+
     const canceledReservationStyle = {
         "textDecoration": "line-through", 
         "textDecorationColor": "red", 
@@ -81,7 +85,7 @@ const MyTrips = () => {
                 console.log(err);
             }
         })();
-    }, [])
+    }, [isUpdate])
 
     const onClickTripsMenu = (event) => {
         const profileTabMenu = document.getElementsByClassName('profile-tab-body-myTrips-menu-div');
@@ -95,24 +99,24 @@ const MyTrips = () => {
 
     return(<>{user != null ? <>
         <div id="profile-tab-body-myTrips-header">
-            <div className="profile-tab-body-myTrips-menu" onClick={onClickTripsMenu}>
-                <div className="profile-tab-body-myTrips-menu-div profile-tab-body-myTrips-clicked">
+            <div className="profile-tab-body-myTrips-menu" >
+                <div className="profile-tab-body-myTrips-menu-div profile-tab-body-myTrips-clicked" onClick={onClickTripsMenu}>
                     Upcoming
                 </div>
             </div>
-            <div className="profile-tab-body-myTrips-menu" onClick={onClickTripsMenu}>
-                <div className="profile-tab-body-myTrips-menu-div">
+            <div className="profile-tab-body-myTrips-menu">
+                <div className="profile-tab-body-myTrips-menu-div" onClick={onClickTripsMenu}>
                     Canceled
                 </div>
             </div>
-            <div className="profile-tab-body-myTrips-menu" onClick={onClickTripsMenu}>
-                <div className="profile-tab-body-myTrips-menu-div">
+            <div className="profile-tab-body-myTrips-menu">
+                <div className="profile-tab-body-myTrips-menu-div" onClick={onClickTripsMenu}>
                     Past Trips
                 </div>
             </div>
         </div>
         <div className="profile-tab-myTrips-hotel-info">
-            {subMenuName === "Upcoming" ? <HotelCard reservation={reservations.upcomingReservation} />
+            {subMenuName === "Upcoming" ? <HotelCard reservation={reservations.upcomingReservation} userId={user._id} upcoming={true} setIsUpdate={setIsUpdate} />
             : subMenuName === "Canceled" ?  <HotelCard reservation={reservations.canceledReservation} style={canceledReservationStyle}/>
             : subMenuName === "Past Trips" ? <HotelCard reservation={reservations.pastReservation} />
             : <Spinner animation="border" variant="success" /> }
