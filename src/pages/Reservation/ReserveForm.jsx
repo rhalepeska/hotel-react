@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import axios from 'axios'
 import RoomList from './RoomList';
 
 const ReserveForm = ({hotelInfo, rooms, hotelid}) => {
@@ -35,8 +34,6 @@ const ReserveForm = ({hotelInfo, rooms, hotelid}) => {
         //find stay length in days
         const inDate = new Date(formData.checkin);
         const outDate = new Date(formData.checkout);
-        // console.log(typeof formData.checkin);
-        // console.log(formData.checkout)
         setReservationDate({"dateStart": formData.checkin, "dateEnd": formData.checkout})
         const timeDif = outDate.getTime() - inDate.getTime(); //milliseconds
         setNights(timeDif / (1000 * 3600 *24)); //convert to days

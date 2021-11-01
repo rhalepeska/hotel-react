@@ -11,8 +11,7 @@ const Reservation = ({match}) => {
 
     useEffect(() => {
         (async () => {
-            const url = process.env.BASE_URL;
-            const {data} = await axios.get(`${url}/hotel/id/${id}`);
+            const {data} = await axios.get(`https://hotel-express.azurewebsites.net/api/hotel/id/${id}`);
             setHotel([data]);
         })();
       }, []);

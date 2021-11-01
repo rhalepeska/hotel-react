@@ -8,13 +8,13 @@ const Home = () => {
     const [featured, setFeatured] = useState([]);
     useEffect(() => {
         (async () => {
-            const url = process.env.BASE_URL;
+            const url = process.env.BASE_URL || "https://hotel-express.azurewebsites.net/api";
             const {data} = await axios.get(`${url}/hotel/featured`);
             console.log(data);
             setFeatured(data);
         })();
       }, []);
-
+ 
     return (
         <>
         <div className="container">
