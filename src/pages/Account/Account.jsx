@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+
+import { useSelector } from 'react-redux'
+
 import { Spinner } from 'react-bootstrap';
 
 import AccountTabBody from '../../components/AccountTabBody/AccountTabBody';
@@ -13,6 +16,12 @@ const Account = () => {
 
     const [user, setUser] = useState(null);
     const [tabMenuName, setTabMenuName] = useState("Overview");
+
+    const username = useSelector(state => state.user.username)
+    const userFirstName = useSelector(state => state.user.firstName)
+    const userPoints = useSelector(state => state.user.points)
+    const userTotalNights = useSelector(state => state.user.totalNights)
+
 
     useEffect(() => {
         (async () => {
@@ -42,18 +51,18 @@ const Account = () => {
         <section className="profile-top">
         <img className="" src={profileImg} id="profile-img" alt="profile" />
         <div className="">
-            <div id="profile-username">{user !=null ? user.firstName !== "" ? user.firstName : user.username : <Spinner animation="border" variant="success" />}</div>
+            <div id="profile-username">{userFirstName != null ? userFirstName : username}</div>
             <div id="profile-menuname">{tabMenuName}</div>
         </div>
         <div className="profile-end">
         {tabMenuName !== "Overview" ?
         <>       
             <div>
-                <h3>{NumberComma(user.points, false)}</h3>
+                <h3>{NumberComma(userPoints, false)}</h3>
                 <p>POINTS</p>
             </div>
             <div>
-                <h3>{user.totalNights}</h3>
+                <h3>{userTotalNights}</h3>
                 <p>NIGHTS THIS YEAR</p>
             </div>
         </>

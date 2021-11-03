@@ -10,7 +10,8 @@ const Hotels = () => {
 
     useEffect(() => {
         (async () => {
-            const {data} = await axios.get('http://localhost:8080/api/hotel');
+            const url = process.env.REACT_APP_BASE_URL;
+            const {data} = await axios.get(`${url}/hotel`);
             console.log(data);
             setHotels(data);
             setFiltered(data);

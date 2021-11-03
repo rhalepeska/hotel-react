@@ -1,6 +1,4 @@
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react';
-import axios from 'axios'
 import Nav from './components/Nav'
 import Account from './pages/Account/Account';
 import Home from './pages/Home/Home';

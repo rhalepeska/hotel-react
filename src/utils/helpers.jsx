@@ -44,7 +44,7 @@ export function validatePassword(password) {
     let special = /[^A-Za-z0-9]/g;
     let returnObj = {'display': 'block', 'char8': 'red', 'specialChar': 'red', 'number': 'red', 'letter': 'red'}
 
-    if (password.length >= 8) {
+    if (password.length >= 8) { 
         returnObj.char8 = '#00c200';
     }else{
         returnObj.char8 = 'red';

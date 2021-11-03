@@ -1,13 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import axios from 'axios'
 import RoomList from './RoomList';
+import { getReservationsByDay } from '../../utils/reservation-API';
 
-const ReserveForm = ({rooms, hotelid}) => {
+const ReserveForm = ({hotelInfo, rooms, hotelid}) => {
     const [formData, setFormData] = useState({ checkin: '', checkout: '' , numRooms: ''}); 
     const [available, setAvailable] = useState([]); //show none by default
     const [show, setShow] = useState(false);
     const [nights, setNights] = useState(0);
+    const [reservationDate, setReservationDate] = useState("");
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -34,15 +35,34 @@ const ReserveForm = ({rooms, hotelid}) => {
         //find stay length in days
         const inDate = new Date(formData.checkin);
         const outDate = new Date(formData.checkout);
+        setReservationDate({"dateStart": formData.checkin, "dateEnd": formData.checkout})
         const timeDif = outDate.getTime() - inDate.getTime(); //milliseconds
         setNights(timeDif / (1000 * 3600 *24)); //convert to days
         
         try{
-        //some axios call
-        //do some checking with reservations in the selected time frame, find which rooms are available
             let checked = [];
             for(let room of rooms){
-                if(room){ //some check/logic; if available, add to the list
+                console.log(formData.checkin, formData.checkout, room._id);
+               const response = await getReservationsByDay(formData.checkin, formData.checkout, room._id);
+               const reservationsByDay = response.data;
+               console.log(reservationsByDay);
+
+               let avail = true;
+               console.log(room.quantity); 
+
+               for(let day of reservationsByDay){
+                    let filled = 0;     //rooms filled by other reservations
+                    
+                    for(let reservation of day){
+                        if(filled + formData.numRooms > room.quantity){
+                            avail = false;
+                            break;
+                        }
+                        filled += reservation.roomQuantity;
+                        console.log('rooms filled ',filled);
+                    }
+               }
+                if(avail){ 
                     checked.push(room);
                 }
             }
@@ -80,7 +100,7 @@ const ReserveForm = ({rooms, hotelid}) => {
                 </div>
             </form>
         </div>
-        {show ? <RoomList rooms={available} nights={nights} numRooms={formData.numRooms} hotelid={hotelid}/> : <></>}
+        {show ? <RoomList rooms={available} nights={nights} numRooms={formData.numRooms} hotelInfo={hotelInfo} reservationDate={reservationDate} hotelid={hotelid}/> : <></>}
       </>
     )
 }

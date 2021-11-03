@@ -38,8 +38,10 @@ class AuthService {
     login(idToken) {
         // Saves user token to localStorage
         localStorage.setItem('id_token', idToken);
+
+        // Comment out below lines to keep Redux State
         // window.location.assign('/'); 
-        window.location.reload();
+        // window.location.reload();
     }
 
     logout() {

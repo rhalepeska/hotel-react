@@ -4,7 +4,7 @@
     align-items: center;
     height: 100%;
 }
-
+ 
 #profile-tab-body-myTrips-header .profile-tab-body-myTrips-menu {
     margin-right: 50px;
     padding-bottom: 10px;
@@ -57,13 +57,27 @@
     font-weight: bolder;
 }
 
+.profile-tab-body-flex #profile-tab-body-myTrips-left > .profile-tab-body-myTrips-left-sec > button{
+    width: 100%;
+    max-width: 250px;
+    background: none;
+    color: #008B8B;
+    border: 1px solid #008B8B;
+    transition: all 0.1s ease-in-out;
+}
+
+.profile-tab-body-flex #profile-tab-body-myTrips-left > .profile-tab-body-myTrips-left-sec > button:hover{
+    background-color: #008B8B;
+    color: white;
+}
+
 .profile-tab-body-flex #profile-tab-body-myTrips-right {
     flex: 2 0 auto;
     text-align: center;
 }
 
 #profile-tab-body-myTrips-right .profile-tab-body-myTrips-right-carousel{
-    width: 320px;
+    width: 370px;
     margin: auto;
 
     position: relative;

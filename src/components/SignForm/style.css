@@ -19,7 +19,7 @@
     border-bottom: 2px solid rgb(230, 230, 230);
     padding: 24px 38px;
     background-color: rgb(250, 250, 250);
-    height: 100%;
+    height: auto;
 }
 
 .signIn-register{
@@ -164,3 +164,14 @@ button[disabled]{
     padding: 0.7rem;
     transition: all 0.2s ease-in-out;
 }
+
+@media only screen and (max-width: 828px) {
+    .signIn-register .signIn-register-center{
+        display: none;
+    }
+
+    .signForm {
+        margin: 10px 25px;
+        height: 90%;
+    }
+  }

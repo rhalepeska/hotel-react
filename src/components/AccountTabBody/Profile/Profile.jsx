@@ -5,6 +5,8 @@ import { Spinner } from 'react-bootstrap';
 import Auth from '../../../utils/auth';
 import { getSingleUser, updateUser, updateCardInfo } from '../../../utils/user-API';
 
+import { useDispatch } from 'react-redux'
+import { setFirstName } from '../../../redux/slices/user/userSlice';
 
 
 const Profile = () => {
@@ -12,6 +14,9 @@ const Profile = () => {
     const [ user, setUser ] = useState(null);
     const [ currentYear, setCurrentYear ] = useState(["2021", "2022"]);
     const [ isUpdatingCardInfo, setIsUpdatingCardInfo ] = useState(false);
+
+    // To store user data on Redux
+    const dispatch = useDispatch();
 
     useEffect(() => {
       let startYear = new Date().getFullYear(); // Current Year.
@@ -95,6 +100,11 @@ const Profile = () => {
       try {
          let response = await updateUser(userInfo);
          console.log(response);
+
+         // Store firstName in Redux state
+         dispatch(setFirstName(userInfo.firstName));
+
+
          onClickProfileCancelBtn();
       }catch(error){
          console.log(error);

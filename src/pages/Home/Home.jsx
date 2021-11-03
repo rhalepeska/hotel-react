@@ -8,12 +8,14 @@ const Home = () => {
     const [featured, setFeatured] = useState([]);
     useEffect(() => {
         (async () => {
-            const {data} = await axios.get('http://localhost:8080/api/hotel/featured');
+            const url = process.env.REACT_APP_BASE_URL
+            console.log(url)
+            const {data} = await axios.get(`${url}/hotel/featured`);
             console.log(data);
             setFeatured(data);
         })();
       }, []);
-
+ 
     return (
         <>
         <div className="container">
