@@ -11,6 +11,10 @@ export const getReservationById = async (id) => {
     return await api.get(`/reservation/${id}`);
 };
 
+export const getReservationsByDay = async (checkin, checkout, roomId) => {
+    return await api.get(`/reservation/day/${checkin}/${checkout}/${roomId}`);
+};
+
 export const createReservation = async (reservationData, userId, roomPrice) => {
     return await api.post(`/reservation/${userId}/${roomPrice}`, reservationData);
 }
