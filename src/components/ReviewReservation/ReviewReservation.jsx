@@ -23,6 +23,8 @@ const ReviewReservation = ({allReviewState, setIsReviewReservation}) => {
     const [ noticeModal, setNoticeModal ] = useState(null);
     const [ showNoticeModal, setShowNoticeModal] = useState(false);
 
+    const [ updateInfo, setUpdateInfo ] = useState("");
+
     const handleClose = () => setShowNoticeModal(false);
     const handleShow = () => setShowNoticeModal(true);
 
@@ -41,7 +43,7 @@ const ReviewReservation = ({allReviewState, setIsReviewReservation}) => {
                 console.log(err);
             }
         })();
-    }, [])
+    }, [updateInfo])
 
     useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -98,11 +100,11 @@ const ReviewReservation = ({allReviewState, setIsReviewReservation}) => {
                 console.log("Make a reservation")
                 console.log("allReviewState", allReviewState);
                 console.log("cardInfo", user.cardInfo)
-                const reservationData = {...allReviewState.reservationData, "cardInfo": user.cardInfo}
+                const reservationData = {...allReviewState.reservationData, "cardInfo": user.cardInfo, "roomQuantity": allReviewState.numRooms}
                 console.log("reservationData", reservationData);
 
                 try {
-                    const updated = await createReservation(reservationData, allReviewState.userId, allReviewState.roomInfo.price)
+                    const updated = await createReservation(reservationData, user._id, allReviewState.roomInfo.price)
                     console.log(updated);
                     handleShow();
                     setNoticeModal("Booking successful");
@@ -145,11 +147,11 @@ const ReviewReservation = ({allReviewState, setIsReviewReservation}) => {
                     ? <>
                         <div>
                             <h4 className="text-center mb-5">Card Information</h4>
-                            <CardInfo user={user} setUser={setUser} /> 
+                            <CardInfo user={user} setUser={setUser} setUpdateInfo={setUpdateInfo} /> 
                         </div>
                         <div>
                             <h4 className="text-center mb-5">Billing Address</h4>
-                            <BillingAddress user={user} setUser={setUser} />
+                            <BillingAddress user={user} setUser={setUser} setUpdateInfo={setUpdateInfo} />
                         </div>
                     </>
                     : <div className="flex-center">
