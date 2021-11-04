@@ -52,7 +52,11 @@ const ReserveForm = ({hotelInfo, rooms, hotelid}) => {
 
                for(let day of reservationsByDay){
                     let filled = 0;     //rooms filled by other reservations
-                    
+                    if(Number.parseInt(formData.numRooms) > room.quantity){
+                        console.log('room not available');
+                        avail = false;
+                        break;
+                    }
                     for(let reservation of day){
                         filled += reservation.roomQuantity;
                         console.log('rooms filled:',filled, 'with max:', room.quantity);
