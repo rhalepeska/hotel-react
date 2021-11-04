@@ -7,6 +7,7 @@ import { getSingleUser } from '../utils/user-API';
 import { useSelector, useDispatch } from 'react-redux'
 import { setFirstName, setUsername, setPoints, setTotalNights } from '../redux/slices/user/userSlice';
 import {useTranslation} from 'react-i18next';
+import { useHistory } from "react-router-dom";
 
 const Nav = () => {
     const [ isSignForm, setIsSignForm ] = useState(false);
@@ -20,7 +21,13 @@ const Nav = () => {
     const username = useSelector(state => state.user.username)
     // To store user data on Redux
     const dispatch = useDispatch();
+    const history = useHistory();
 
+    const logout = () => {
+        Auth.logout();
+        
+        history.go(0);
+    }
     const signFormOnClick = () =>{
         setIsSignForm(true)
     }
@@ -67,7 +74,7 @@ const Nav = () => {
                         <Link to="/account" className="nav-link">{t('nav.acc')}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="#" onClick={Auth.logout} className="nav-link">{t('nav.out')}</Link>
+                        <Link to="#" onClick={logout} className="nav-link">{t('nav.out')}</Link>
                     </li>
                 </>) : (
                     <li className="nav-item">
