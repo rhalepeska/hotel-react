@@ -58,6 +58,8 @@
 }
 
 .profile-tab-body-flex #profile-tab-body-myTrips-left > .profile-tab-body-myTrips-left-sec > button{
+    flex: 0 0 125px;
+    margin: 0 10px 10px 0;
     width: 100%;
     max-width: 250px;
     background: none;
@@ -91,4 +93,14 @@
     width: 100%;
     padding: 7px;
     z-index: 1;
+}
+
+.checking-warning{
+    display: block!important;
+    padding: 10px;
+    max-width: 270px;
+}
+
+.checking-warning > ul {
+    margin: 0px;
 }
