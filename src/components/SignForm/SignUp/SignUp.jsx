@@ -4,6 +4,8 @@ import { validateEmail, validatePassword } from '../../../utils/helpers';
 import { createUser } from "../../../utils/user-API";
 import Auth from '../../../utils/auth';
 
+import { useDispatch } from 'react-redux'
+import { setFirstName, setUsername, setPoints, setTotalNights } from '../../../redux/slices/user/userSlice';
 
 const SignUp = ( {closeModal} ) => { 
     const [userFormData, setUserFormData] = useState({'username': '', 'password': '', 'confirmpassword':'', 'email': ''}); 
@@ -12,6 +14,9 @@ const SignUp = ( {closeModal} ) => {
     const [ emailNotice, setEmailNotice] = useState('none');
     const [ confirmPWNotice, setConfirmPWNotice] = useState('none');
 
+    // To store user data on Redux
+    const dispatch = useDispatch();
+    
     // Handle Register Button
     useEffect(() =>{
         const registerbtnEl = document.getElementById("register-btn");
@@ -92,6 +97,12 @@ const SignUp = ( {closeModal} ) => {
             
             // console.log(user);
             Auth.login(token);
+
+            // To store user data in Redux state
+            dispatch(setFirstName(user.firstName));
+            dispatch(setUsername(user.username));
+            dispatch(setPoints(user.points));
+            dispatch(setTotalNights(user.totalNights));
 
             closeModal();
         }

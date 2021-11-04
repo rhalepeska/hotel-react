@@ -57,7 +57,7 @@ const Nav = () => {
                 {/* <li className="nav-item">{`${message}`}</li> */}
                 {Auth.loggedIn() ? (<>
                     <li className="nav-item">
-                    <Link to="#" className="nav-link">Hello, {userFirstName != null ? userFirstName : username}</Link>
+                    <Link to="#" className="nav-link">Hello, {userFirstName !== "" ? userFirstName : username}</Link>
                         {/* <Link to="#" className="nav-link">Hello, {user.username? user.firstName !== "" ? user.firstName : user.username : "World"}</Link> */}
                     </li>
                     <li className="nav-item">
