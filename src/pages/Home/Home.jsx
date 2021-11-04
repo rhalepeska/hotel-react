@@ -27,7 +27,7 @@ const Home = () => {
         <div className="text-center py-3 my-2 bk-img">
             <div>
                 <h3 className="py-3">{t('img.text')}</h3>
-                <button className="btn btn-dark rounded-pill">{t('img.btn')}</button>
+                <Link to="/reserve/616f1a968cd784a10e38a971" className="btn btn-dark rounded-pill">{t('img.btn')}</Link>
             </div>
         </div>
         <div className="container">
