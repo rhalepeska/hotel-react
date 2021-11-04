@@ -4,7 +4,7 @@ import { updateCardInfo } from '../../../utils/user-API';
 
 import { Spinner } from 'react-bootstrap';
 
-const CardInfo = ( {user, setUser} ) => {
+const CardInfo = ( {user, setUser, setUpdateInfo} ) => {
 
     // const [ user, setUser ] = useState(null);
     const [ currentYear, setCurrentYear ] = useState(["2021", "2022"]);
@@ -65,6 +65,8 @@ const CardInfo = ( {user, setUser} ) => {
            let response = await updateCardInfo(cardInfo, user.username);
            console.log(response);
            onClickCardCancelBtn();
+
+           setUpdateInfo("Update Card info Address");
            setIsUpdatingCardInfo(false);
         }catch(error){
            console.log(error);

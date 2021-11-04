@@ -1,7 +1,7 @@
 import { updateBillingAddress } from '../../../utils/user-API';
 
 
-const BillingAddress = ( {user, setUser} ) => {
+const BillingAddress = ( {user, setUser, setUpdateInfo} ) => {
 
 
     const onChangereservationBillingAddressForm = (event) => {
@@ -45,7 +45,7 @@ const BillingAddress = ( {user, setUser} ) => {
       try {
          let response = await updateBillingAddress(billingAddress, user._id);
          console.log(response);
-
+         setUpdateInfo("Update billing Address");
          onClickreservationBillingAddressCancelBtn();
       }catch(error){
          console.log(error);
@@ -73,11 +73,11 @@ const BillingAddress = ( {user, setUser} ) => {
         <div className="reviewReseravation-cardInfo" id="reservationBillingAddress-tab-body-reservationBillingAddress-left">
             <div>
                <label htmlFor="firstName">First Name: </label>
-               <input className="reservationBillingAddress-input" type="text" name="firstName" value={user.firstName ?? ""} onChange={onChangereservationBillingAddressForm} disabled />
+               <input className="reservationBillingAddress-input" type="text" name="firstName" value={user.billingAddress ? user.billingAddress.firstName : user.firstName } onChange={onChangereservationBillingAddressForm} disabled />
             </div>
             <div>
                <label htmlFor="lastName">Last Name: </label>
-               <input className="reservationBillingAddress-input" type="text" name="lastName" value={user.lastName ?? ""} onChange={onChangereservationBillingAddressForm} disabled />
+               <input className="reservationBillingAddress-input" type="text" name="lastName" value={user.billingAddress ? user.billingAddress.lastName : user.lastName } onChange={onChangereservationBillingAddressForm} disabled />
             </div>
             <div>
                <label htmlFor="street">Street: </label>

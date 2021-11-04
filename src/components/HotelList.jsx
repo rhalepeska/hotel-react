@@ -12,7 +12,7 @@ const HotelList = (props) => {
                     return(
                         <Card key={hotel._id} hotel={hotel}/>
                     )}
-                )};
+                )}
             </>
             :
             <>
