@@ -26,7 +26,8 @@ const Nav = () => {
     const logout = () => {
         Auth.logout();
         
-        history.go(0);
+        let path = `/`; 
+        history.push(path);
     }
     const signFormOnClick = () =>{
         setIsSignForm(true)
