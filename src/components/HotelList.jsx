@@ -23,7 +23,7 @@ const HotelList = (props) => {
                             <HotelTable location={hotel.location} rooms={hotel.roomType}/>
                         </div>
                     )}
-                )};
+                )}
             </>
     )
 }
