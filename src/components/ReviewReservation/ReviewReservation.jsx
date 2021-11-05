@@ -106,6 +106,7 @@ const ReviewReservation = ({allReviewState, setIsReviewReservation}) => {
                 console.log("reservationData", reservationData);
 
                 try {
+                    document.body.style.overflow = 'visible';
                     const updated = await createReservation(reservationData, user._id, allReviewState.roomInfo.price)
                     console.log(updated);
                     handleShow();
@@ -115,7 +116,7 @@ const ReviewReservation = ({allReviewState, setIsReviewReservation}) => {
                     dispatch(setTotalNights(updated.data.updatedNights));
                     dispatch(setPoints(updated.data.updatedPoints));
 
-                    document.body.style.overflow = 'visible';
+                    // document.body.style.overflow = 'visible';
                     closeModal();
                //     window.location.assign('/account');
                     let path = `/account`; 
