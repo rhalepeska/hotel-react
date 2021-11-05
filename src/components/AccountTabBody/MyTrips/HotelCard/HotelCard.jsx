@@ -110,7 +110,8 @@ const HotelCard = ({reservation, userId, upcoming=false, style, setIsUpdate}) =>
             handleCloseUpdateModal();
             setIsUpdate(response);
         }catch(error){
-            alert(error.response.data.message);
+            alert(error.response.data.message +  
+            " Please select another date.");
         }
     }
 
