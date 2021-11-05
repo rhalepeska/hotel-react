@@ -28,6 +28,7 @@ const Nav = () => {
         
         let path = `/`; 
         history.push(path);
+        history.go(0);
     }
     const signFormOnClick = () =>{
         setIsSignForm(true)
